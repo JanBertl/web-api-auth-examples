@@ -12,7 +12,6 @@ var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
-
 var client_id =  process.env.client_id; // Your client id
 var client_secret = process.env.client_secret; // Your secret
 var redirect_uri = process.env.redirect_uri; // Your redirect uri
@@ -145,3 +144,8 @@ app.get('/refresh_token', function(req, res) {
 
 console.log('Listening on 8888');
 app.listen(8888);
+
+
+//authorization automatisieren
+//playlist verändern
+//gitHub Repos checken
