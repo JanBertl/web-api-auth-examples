@@ -6,7 +6,7 @@
  * For more information, read
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
- require('dotenv').config()
+require('dotenv').config()
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
 var cors = require('cors');
@@ -15,7 +15,7 @@ var cookieParser = require('cookie-parser');
 var client_id =  process.env.client_id; // Your client id
 var client_secret = process.env.client_secret; // Your secret
 var redirect_uri = process.env.redirect_uri; // Your redirect uri
-
+var getMyData = require('../custom/playlist')
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -141,6 +141,8 @@ app.get('/refresh_token', function(req, res) {
     }
   });
 });
+
+getMyData;
 
 console.log('Listening on 8888');
 app.listen(8888);

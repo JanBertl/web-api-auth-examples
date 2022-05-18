@@ -1,13 +1,10 @@
 require('dotenv').config()
-
+const fs = require('fs')
 const SpotifyWebApi = require('spotify-web-api-node');
 const spotifyApi = new SpotifyWebApi();
 
-spotifyApi.setAccessToken(process.env.token);
 
-const changePlaylist = () => {
-    spotifyApi.getAccessToken()
-}
+spotifyApi.setAccessToken();
 
 //GET MY PROFILE DATA
 function getMyData() {
@@ -35,7 +32,6 @@ async function getUserPlaylists(userName) {
 
     const tracksJSON = { tracks }
     let data = JSON.stringify(tracksJSON);
-    fs.writeFileSync(playlist.name+'.json', data);
   }
 }
 
@@ -63,5 +59,5 @@ async function getPlaylistTracks(playlistId, playlistName) {
   return tracks;
 }
 
-getMyData();
+module.exports = getMyData()
 
